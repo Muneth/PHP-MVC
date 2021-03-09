@@ -1,0 +1,8 @@
+# Avoiding access to APP folder even though it is forbidden and redirecting everything to PUBLIC folder...
+# Enabling rewrite, making sure it is on and redirecting everything to public and public is redirected to index.php & index is requiring bootstrap file ....
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule ^$ public/ [L]
+  RewriteRule (.*) public/$1 [L]
+</IfModule>
