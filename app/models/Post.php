@@ -6,6 +6,9 @@
       $this->db = new Database;
     }
 
+    // Getting posts
+    // Creating an alias
+    // Joining the users and posts table - inner join
     public function getPosts(){
       $this->db->query('SELECT *,
                         posts.id as postId,
@@ -23,6 +26,8 @@
       return $results;
     }
 
+    // Inserting to post table 
+    // Utilizing Database Class functions
     public function addPost($data){
       $this->db->query('INSERT INTO posts (title, user_id, body) VALUES(:title, :user_id, :body)');
       // Bind values
@@ -38,6 +43,7 @@
       }
     }
 
+    // Updating the post by it's ID
     public function updatePost($data){
       $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
       // Bind values
@@ -53,6 +59,7 @@
       }
     }
 
+    // Fetching single post by ID
     public function getPostById($id){
       $this->db->query('SELECT * FROM posts WHERE id = :id');
       $this->db->bind(':id', $id);
@@ -61,6 +68,7 @@
       return $row;
     }
 
+    // Deleting post by ID
     public function deletePost($id){
       $this->db->query('DELETE FROM posts WHERE id = :id');
       // Bind values

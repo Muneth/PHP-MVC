@@ -6,4 +6,20 @@
     <p class="h3 "><?php echo $data['description']; ?></p>
     </div>
   </div> 
+  <div id="body">
+        <!-- <h1>My Blog</h1> -->
+        <div class="filter-container">
+            <input type="text" id="filter" class="filter" placeholder="Filter posts...">
+        </div>
+        
+        <div id="posts-container">
+            <!-- Dynamically inserted POSTS -->
+        </div>
+    
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

@@ -1,8 +1,8 @@
-<?php
+ <?php
   class User {
     private $db;
 
-    // Initialing Database
+    // Instantiating Database
     public function __construct(){
       $this->db = new Database;
     }
@@ -24,12 +24,15 @@
     }
 
     // Login User
+    // Verifying the email
+    // Verifying the hashed password
     public function login($email, $password){
       $this->db->query('SELECT * FROM users WHERE email = :email');
       $this->db->bind(':email', $email);
 
       $row = $this->db->single();
 
+      // Getting the hash password from the DB
       $hashed_password = $row->password;
       if(password_verify($password, $hashed_password)){
         return $row;
@@ -55,7 +58,7 @@
       }
     }
 
-    // Get User by ID
+    // Get User by ID to show the in single post page 
     public function getUserById($id){
       $this->db->query('SELECT * FROM users WHERE id = :id');
       // Bind value

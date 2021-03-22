@@ -7,7 +7,8 @@
         <form action="<?php echo URLROOT; ?>/users/register" method="post">
           <div class="form-group">
             <label for="name">Name: <sup>*</sup></label>
-            <!-- Showing error class on the inputs only if there is an error -->
+            
+            <!-- Showing error class - 'is-invalid' on the inputs only if there is an error -->
             <input type="text" name="name" class="form-control form-control-lg <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
             <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
           </div>

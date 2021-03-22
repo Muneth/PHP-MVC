@@ -7,6 +7,8 @@
 </div>
 <p><?php echo $data['post']->body; ?></p>
 
+<!-- Making sure that the logged in user can modify only there posts  -->
+
 <?php if($data['post']->user_id == $_SESSION['user_id']) : ?>
 
   <hr>

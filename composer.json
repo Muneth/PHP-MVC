@@ -1,0 +1,12 @@
+{
+    "name": "muneth/posty-mvc-crud",
+    "authors": [
+        {
+            "name": "muneet",
+            "email": "muneetchaudhary@me.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
+}

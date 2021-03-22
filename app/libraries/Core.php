@@ -66,6 +66,7 @@
         $url = explode('/', $url);
         return $url;
       }
+      else return [''];
     }
   } 
   

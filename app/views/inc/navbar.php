@@ -13,19 +13,20 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages/contact">Contact</a>
-        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
+
+      <!-- If the user id is in the session then show this nav items  -->
         <?php if (isset($_SESSION['user_id'])) : ?>
           <li class="nav-item">
+      <!-- Displaying loggedIn User -->
             <a class="nav-link" href="#">Welcome <?php echo $_SESSION['user_name']; ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
           </li>
+      <!-- Otherwise show this nav items  -->
         <?php else : ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>

@@ -9,6 +9,7 @@
 
     // Default method which run with default Controller - Pages
     // Loading the view - index.php
+    // If Logged in then redirect to posts as home 
     public function index(){
       if(isLoggedIn()){
         redirect('posts');
@@ -33,14 +34,5 @@
       ];
 
       $this->view('pages/about', $data);
-    }
-
-    public function contact(){
-      // Defining an object for the view - about.php
-      $data = [
-        
-      ];
-
-      $this->view('pages/contact', $data);
     }
   }

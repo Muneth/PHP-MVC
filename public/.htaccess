@@ -2,13 +2,13 @@
 # disable Multiviews - to avoid confusion with test or test.php...
 # turning on the rewrite engine and
 # rewriting the base = appname/public - not including localhost
-# then requesting the file and if the file is not find then redirecting everything to index.php
+# then requesting the file and if the file is not found then redirecting everything to index.php
 # attaching the url parameter after index.php so that we can put /posts or something instead of ?url=posts...
 
 <IfModule mod_rewrite.c>
   Options -Multiviews
   RewriteEngine On
-  RewriteBase /shareposts/public
+  RewriteBase /posty-mvc-crud/public
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]

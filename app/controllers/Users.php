@@ -19,7 +19,8 @@
         // Sanitize POST data
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-        // Init data
+        // Init DATA[] object so that user don't have to resubmit if the page refresh 
+        // and to use the data object for validation 
         $data =[
           'name' => trim($_POST['name']),
           'email' => trim($_POST['email']),
@@ -49,6 +50,7 @@
         // Validate Password
         if(empty($data['password'])){
           $data['password_err'] = 'Pleae enter password';
+        // Minimum 6 letters condotion for the password
         } elseif(strlen($data['password']) < 6){
           $data['password_err'] = 'Password must be at least 6 characters';
         }
@@ -64,26 +66,29 @@
 
         // Make sure  all the errors are empty
          // Then Validate
-        if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err'])){
-         
+        if(empty($data['email_err']) && empty($data['name_err']) && empty($data['password_err']) && empty($data['confirm_password_err']))
+          {
           
-          // Hash Password
-          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+            // Hash Password
+            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-          // Register User
-          if($this->userModel->register($data)){
+            // Register User
+            if($this->userModel->register($data)){
 
-            // Custom flash message from session_helper
-            flash('register_success', 'You are registered and can log in');
-            redirect('users/login');
+              // Custom flash message from session_helper
+              flash('register_success', 'You are registered and can log in');
+
+              // redirect function from url_helpers
+              // if registration will go fine then redirect to login page
+              redirect('users/login');
+            } else {
+              die('Something went wrong');
+            }
+
           } else {
-            die('Something went wrong');
+            // Load view with errors
+            $this->view('users/register', $data);
           }
-
-        } else {
-          // Load view with errors
-          $this->view('users/register', $data);
-        }
 
       } else {
         // init from data
@@ -143,8 +148,11 @@
           $loggedInUser = $this->userModel->login($data['email'], $data['password']);
 
           if($loggedInUser){
-            // Create Session
+
+            // Create Session if the user and password match in the DB
             $this->createUserSession($loggedInUser);
+
+            // if the password doesn't match then load the view with error
           } else {
             $data['password_err'] = 'Password incorrect';
 
@@ -170,12 +178,17 @@
       }
     }
 
+    // Storing credentials in the SESSION after matching with the DB
+    // login the user and redirect to the posts page
+
     public function createUserSession($user){
       $_SESSION['user_id'] = $user->id;
       $_SESSION['user_email'] = $user->email;
       $_SESSION['user_name'] = $user->name;
       redirect('posts');
     }
+
+    // Unsetting the credentials to logout and redirect to the login page 
 
     public function logout(){
       unset($_SESSION['user_id']);
