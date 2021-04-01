@@ -29,6 +29,7 @@ async function getPosts() {
 // Async way - waiting to fetch the posts from the server before loading the UI
 async function showPosts() {
     const posts = await getPosts();
+    
 
     // Dynamically injecting the post in the HTML
     posts.forEach(post => {
