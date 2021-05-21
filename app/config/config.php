@@ -15,7 +15,7 @@
   // Setting it to - Const APPROOT
   define('APPROOT', dirname(dirname(__FILE__)));
   // URL Root
-  define('URLROOT', 'https://posty-mvc.herokuapp.com/muneth/posty-mvc-crud');
+  define('URLROOT', 'https://posty-mvc.herokuapp.com');
   // Site Name
   define('SITENAME', 'Posty');
   // App Version
