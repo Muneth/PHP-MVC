@@ -3,6 +3,7 @@
   // Default Conroller which Extends the Base Controller from libraries
 
   class Pages extends Controller {
+    
     public function __construct(){
      
     }

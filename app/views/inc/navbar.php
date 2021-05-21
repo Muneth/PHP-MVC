@@ -1,41 +1,32 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3" aria-label="Fourth navbar example">
-  <div class="container">
-    <a class="navbar-brand" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample04">
-      <ul class="navbar-nav mr-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav ml-auto">
-
-      <!-- If the user id is in the session then show this nav items  -->
-        <?php if (isset($_SESSION['user_id'])) : ?>
-          <li class="nav-item">
-      <!-- Displaying loggedIn User -->
-            <a class="nav-link" href="#">Welcome <?php echo $_SESSION['user_name']; ?></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
-          </li>
-      <!-- Otherwise show this nav items  -->
-        <?php else : ?>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo URLROOT; ?>/users/login">Login</a>
-          </li>
-        <?php endif; ?>
-      </ul>
+<nav>
+  <div id="logo">
+    <a class="text-bg-animation" href="<?php echo URLROOT; ?>"><?php echo SITENAME; ?></a>
+  </div>
+  <ul class="nav-links">
+    <div class="flex-row">
+      <li><a href="<?php echo URLROOT; ?>">Home</a></li>
+      <li><a href="<?php echo URLROOT; ?>/pages/about">About</a></li>
     </div>
+    <div class="cursor-blink"></div>
+    <div class="cursor-blink"></div>
+    <div class="flex-row">
+    <!-- If the user id is in the session then show these nav items  -->
+      <?php if (isset($_SESSION['user_id'])) : ?>
+    <!-- Displaying loggedIn User -->
+        <li><a href="#">Welcome <?php echo explode(' ',$_SESSION['user_name'])[0]; ?></a></li>
+        <li><a href="<?php echo URLROOT; ?>/posts/dashboard">Dashboard</a></li>
+        <li><a href="<?php echo URLROOT; ?>/users/logout">Logout</a></li>
+    <!-- Otherwise show these nav items  -->
+      <?php else : ?>
+        <li><a href="<?php echo URLROOT; ?>/users/register">Register</a></li>
+        <li><a href="<?php echo URLROOT; ?>/users/login">Login</a></li>
+      <?php endif; ?>
+    </div>
+  </ul>
+  <div class="burger">
+    <div class="line1"></div>
+    <div class="line2"></div>
+    <div class="line3"></div>
   </div>
 </nav>
+<div id="marginBottom"></div>

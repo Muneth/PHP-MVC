@@ -1,4 +1,3 @@
-
 <?php
 
   class Users extends Controller {
@@ -6,6 +5,11 @@
     // Loading the User Model
     public function __construct(){
       $this->userModel = $this->model('User');
+    }
+
+    public function index() 
+    {
+        $this->view('pages/404');
     }
 
     // Function to load the form and for submition of the form as well
@@ -22,8 +26,8 @@
         // Init DATA[] object so that user don't have to resubmit if the page refresh 
         // and to use the data object for validation 
         $data =[
-          'name' => trim($_POST['name']),
-          'email' => trim($_POST['email']),
+          'name' => htmlspecialchars(trim($_POST['name'])),
+          'email' => htmlspecialchars(trim($_POST['email'])),
           'password' => trim($_POST['password']),
           'confirm_password' => trim($_POST['confirm_password']),
           'name_err' => '',
@@ -34,7 +38,7 @@
 
         // Validate Email
         if(empty($data['email'])){
-          $data['email_err'] = 'Pleae enter email';
+          $data['email_err'] = 'Please enter email';
         } else {
           // Checking email from DB
           if($this->userModel->findUserByEmail($data['email'])){
@@ -44,12 +48,12 @@
 
         // Validate Name
         if(empty($data['name'])){
-          $data['name_err'] = 'Pleae enter name';
+          $data['name_err'] = 'Please enter name';
         }
 
         // Validate Password
         if(empty($data['password'])){
-          $data['password_err'] = 'Pleae enter password';
+          $data['password_err'] = 'Please enter password';
         // Minimum 6 letters condotion for the password
         } elseif(strlen($data['password']) < 6){
           $data['password_err'] = 'Password must be at least 6 characters';
@@ -57,7 +61,7 @@
 
         // Validate Confirm Password
         if(empty($data['confirm_password'])){
-          $data['confirm_password_err'] = 'Pleae confirm password';
+          $data['confirm_password_err'] = 'Please confirm password';
         } else {
           if($data['password'] != $data['confirm_password']){
             $data['confirm_password_err'] = 'Passwords do not match';

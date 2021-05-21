@@ -6,7 +6,13 @@
             "email": "muneetchaudhary@me.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Posty\\" : "./app"
+        }
+    },
     "require": {
+        
         "vlucas/phpdotenv": "^5.3"
     }
 }

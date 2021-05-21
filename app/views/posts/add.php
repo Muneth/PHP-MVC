@@ -1,26 +1,25 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<!-- Back to posts page -->
-  <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light"><i class="fa fa-backward"></i> Back</a>
-  <div class="card card-body bg-light mt-5">
-    <h2>Add Post</h2>
-    <p>Create a post with this form</p>
+
+<div class="singlePostContainer">
+  <!-- Back to posts page -->
+    <a href="<?php echo URLROOT; ?>/posts" class="btn-main padding-btn btn-text-3"><i class="fa fa-backward"></i> Back</a>
+  <div class="addPostContainer">
+    <h2 class="form-header text-bg margin-1 padding">Add Post</h2>
+    
     <form action="<?= URLROOT; ?>/posts/add" method="post">
-      <div class="form-group">
-        <label for="title">Title: <sup>*</sup></label>
-        <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['title']; ?>">
-        <span class="invalid-feedback"><?php echo $data['title_err']; ?></span>
+      <div class="flex-column padding">
+        <label class="form_label margin-1" for="title">Title: <sup>*</sup></label>
+        <input type="text" name="title" class="input" value="<?php echo $data['title']; ?>">
+        <span class="invalid-feedback"><?php echo !empty($data['title_err']) ? $data['title_err'] : ''; ?></span>
       </div>
-      <div class="form-group">
-        <label for="body">Body: <sup>*</sup></label>
-        <textarea name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['body']; ?></textarea>
-        <span class="invalid-feedback"><?php echo $data['body_err']; ?></span>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">Example file input</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      <div class="flex-column padding">
+        <label class="form_label margin-1" for="body">Body: <sup>*</sup></label>
+        <textarea name="body" class="input"><?php echo $data['body']; ?></textarea>
+        <span class="invalid-feedback"><?php echo !empty($data['body_err']) ?  $data['body_err'] : ''; ?></span>
       </div>
 
-      <input type="submit" class="btn btn-success" value="Submit">
+      <input type="submit" class="btn-main" value="Submit">
     </form>
   </div>
+</div>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

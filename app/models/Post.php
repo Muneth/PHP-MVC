@@ -25,6 +25,14 @@
 
       return $results;
     }
+        
+    public function getPostsByUserId(){
+      $user_id = $_SESSION['user_id'];
+      $this->db->query("SELECT * FROM posts WHERE user_id = '$user_id'");
+
+      $idresults = $this->db->resultSet();
+      return $idresults;
+    }
 
     // Inserting to post table 
     // Utilizing Database Class functions

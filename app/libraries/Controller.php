@@ -1,4 +1,6 @@
 <?php
+
+  // namespace Posty\libraries\Controller;
   /*
    * Base Controller
    * Loads the models and views in the other controllers   * 

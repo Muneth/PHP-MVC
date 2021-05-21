@@ -23,6 +23,16 @@
       $this->view('posts/index', $data);
     }
 
+    public function dashboard(){
+      $userPosts = $this->postModel->getPostsByUserId();
+      
+      $data = [
+        'userPosts' => $userPosts,
+      ];
+
+      $this->view('posts/dashboard', $data);
+    }
+
     public function add(){
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Sanitize POST array
@@ -30,8 +40,8 @@
 
         // init data
         $data = [
-          'title' => trim($_POST['title']),
-          'body' => trim($_POST['body']),
+          'title' => htmlspecialchars(trim($_POST['title'])),
+          'body' =>  htmlspecialchars(trim($_POST['body'])),
           'user_id' => $_SESSION['user_id'],
           'title_err' => '',
           'body_err' => ''
@@ -52,7 +62,7 @@
           
           if($this->postModel->addPost($data)){
             flash('post_message', 'Post Added');
-            redirect('posts');
+            redirect('posts/dashboard');
           } else {
             die('Something went wrong');
           }
@@ -79,8 +89,8 @@
 
         $data = [
           'id' => $id,
-          'title' => trim($_POST['title']),
-          'body' => trim($_POST['body']),
+          'title' => htmlspecialchars(trim($_POST['title'])),
+          'body' => htmlspecialchars(trim($_POST['body'])),
           'user_id' => $_SESSION['user_id'],
           'title_err' => '',
           'body_err' => ''
@@ -96,12 +106,12 @@
 
         // Make sure there are no errors and then validate
         // flash message if post edited
-        // Redirect to posts 
+        // Redirect to dashboard 
         if(empty($data['title_err']) && empty($data['body_err'])){
   
           if($this->postModel->updatePost($data)){
             flash('post_message', 'Post Updated');
-            redirect('posts');
+            redirect('posts/dashboard');
           } else {
             die('Something went wrong');
           }
@@ -159,7 +169,7 @@
 
         if($this->postModel->deletePost($id)){
           flash('post_message', 'Post Removed');
-          redirect('posts');
+          redirect('posts/dashboard');
         } else {
           die('Something went wrong');
         }
