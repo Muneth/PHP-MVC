@@ -6,10 +6,10 @@
 // $dotenv->load();
 
   // DataBase Parameters 
-  define('DB_HOST', "localhost");
-  define('DB_USER', "root");
-  define('DB_PASS', "");
-  define('DB_NAME', "shareposts");
+  define('DB_HOST', "e9d53afa@eu-cdbr-west-01.cleardb.com");
+  define('DB_USER', "b9d2f5cfa78a4f");
+  define('DB_PASS', "e9d53afa");
+  define('DB_NAME', " heroku_a87f4efffbb8531");
 
   // Getting App Root - dirname() - gives the parent folder path 
   // Setting it to - Const APPROOT
