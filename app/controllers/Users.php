@@ -199,6 +199,6 @@
       unset($_SESSION['user_email']);
       unset($_SESSION['user_name']);
       session_destroy();
-      redirect('users/login');
+      redirect('pages/index');
     }
   }

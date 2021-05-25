@@ -9,7 +9,7 @@
   <?php foreach($data['posts'] as $post) : ?>
 
     <article class="card">
-      <div class="article__header"><img  src="<?php echo URLROOT; ?>/img/drawers.jpg"/></div>
+      <div class="article__header"><img  src="<?php echo URLROOT; ?>/img/drawers.jpg" alt="Post image"/></div>
         <div class="article__info--container">
           <h2 class="article__title"><?php echo $post->title; ?></h2>
           <p class="article__summary"><?php echo $post->body; ?></p>
@@ -26,7 +26,7 @@
             <button class="share-btn">
               <img class="btn-img" src="<?php echo URLROOT; ?>/img/icon-share.svg" alt="Share button" />
             </button>
-            <a class="more_link" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
+            <a title="Single Post Page" class="more_link" href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->postId; ?>">More</a>
           </div>
         </div>
         <div class="share-footer">

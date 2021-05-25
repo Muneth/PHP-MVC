@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
   <div class="flex-row db-heading">
     <h2>Your Posts</h2>
-    <div class=""><a href="<?php echo URLROOT; ?>/posts/add" class="btn-main btn-text-2"><i class="fas fa-pencil-alt"></i>Add Post</a></div>
+    <div><a href="<?php echo URLROOT; ?>/posts/add" class="btn-main btn-text-2"><i class="fas fa-pencil-alt"></i>Add Post</a></div>
   </div>
   
 <div class="postContainer">

@@ -20,7 +20,7 @@ const fetchJsons = async (...endpoints) => {
   }
 };
 
-// Fetching data from different API's and Displaying as a post 
+// Fetching data from different API's and Displaying as a post
 
 async function showPosts() {
   const [photos, posts, user] = await fetchJsons(
@@ -38,7 +38,7 @@ async function showPosts() {
       `
       <article class="card"><div class="article__header"><img  src="${
         photo.download_url
-      }" alt="Author profile picture"/></div>
+      }" alt="Post image"/></div>
         <div class="article__info--container">
           <h2 class="article__title">${posts[i].title}</h2>
           <p class="article__summary">${posts[i].body}</p>
@@ -63,7 +63,7 @@ async function showPosts() {
   });
 }
 
-// Function to get randon date 
+// Function to get randon date
 function randomDate(start, end) {
   return new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
