@@ -10,8 +10,12 @@
 /* 6. POST PAGE */
 /* 7. LOADER */
 /* 8. FORM */
-/* 9. ANIMATION */
-/* 10.Media Queries */
+/* 9. PAGE - 404 */
+/* 10. OTHER POST PAGES  */
+/* 11. POST EDIT PAGE */
+/* 12. DASHBOARD */
+/* 13. ANIMATION */
+/* 14.Media Queries */
 
 /* Google fonts */
 @import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
@@ -38,7 +42,6 @@ button:active {
   --light: #ecf2f8;
   --text: #173e43;
   --gradient-text: linear-gradient(45deg, #ff8c7f, #f99185, #cf556c, #5d4157);
-  --gradient-bg1: linear-gradient(45deg, #dcb0ed, #e7cdf1, #99c99c);
   --gardient-bg: linear-gradient(
     45deg,
     #fed689,
@@ -94,23 +97,47 @@ button:active {
   animation: blink 0.5s infinite alternate ease-in-out;
 }
 
+.more_link {
+  text-decoration: none;
+  color: var(--light-blue);
+  background-color: var(--light);
+  padding: 0.5rem;
+  margin-left: 1rem;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "RocknRoll One", sans-serif;
+}
+
 /* =========================================== */
 /* ================ MAIN SECTION ============= */
 /* =========================================== */
+
 body {
   background-image: var(--gardient-bg);
   height: 100%;
   background-size: 400%;
   animation: bg-animation 20s infinite alternate;
+  font-family: "RocknRoll One", sans-serif;
 }
 
-.containerMain {
-  width: 1200px;
+.hero {
   display: flex;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.hero h1 {
+  font-size: 10vw;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 2rem;
+  color: var(--text);
 }
 
 /* ======================================== */
@@ -122,13 +149,12 @@ nav {
   align-items: center;
   min-height: 8vh;
   background-color: inherit;
-  font-family: "RocknRoll One", sans-serif;
 }
 
 #logo {
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .nav-links {
@@ -139,20 +165,17 @@ nav {
 
 .nav-links li {
   list-style: none;
-  margin-right: 2rem;
-  margin-left: 2rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-links li {
   color: var(--text);
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
   font-size: 1rem;
-}
-
-.nav-active {
-  transform: translateX(0%);
 }
 
 /* ============== BURGER MENU MOBILE =============== */
@@ -181,27 +204,6 @@ nav {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
-#hero {
-  font-family: "RocknRoll One", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  height: 100vh;
-  margin: 1rem;
-  border-radius: 5px;
-}
-
-#hero h1 {
-  font-size: 10vw;
-  margin-bottom: 1rem;
-}
-
-#hero p {
-  font-size: 2rem;
-  color: var(--text);
-}
-
 /* ======================================= */
 /* ============= POST PAGE =============== */
 /* ======================================= */
@@ -214,14 +216,6 @@ nav {
   justify-content: center;
   align-items: center;
   font-family: "Manrope", sans-serif;
-}
-
-#marginBottom {
-  transition: 1s;
-}
-
-.mobileMargin {
-  margin-bottom: 10rem;
 }
 
 .card {
@@ -252,7 +246,6 @@ nav {
 }
 
 /* ============== Article description ============== */
-
 .article__info--container {
   width: 80%;
   margin: 2.5rem auto 0;
@@ -273,8 +266,7 @@ nav {
   width: 98%;
 }
 
-/* ============= Author info and share button =============== */
-
+/* ======= Author info and share button =========== */
 .card__footer {
   display: flex;
   justify-content: space-between;
@@ -317,17 +309,6 @@ nav {
 
 .share-btn img {
   width: 15px;
-}
-
-.more_link {
-  text-decoration: none;
-  color: var(--light-blue);
-  background-color: var(--light);
-  padding: 0.5rem;
-  margin-left: 1rem;
-  text-align: center;
-  border-radius: 5px;
-  font-family: "RocknRoll One", sans-serif;
 }
 
 /* ============= Active Share footer for mobile =============== */
@@ -401,8 +382,9 @@ nav {
 }
 
 /* ======================================= */
-/* =============== FORM ================== */
+/* =============== FORMS ================== */
 /* ======================================= */
+
 .invalid-feedback {
   width: 100%;
   margin-top: 0.5rem;
@@ -413,14 +395,13 @@ nav {
 }
 
 .formContainer {
-  font-family: "RocknRoll One", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-#formContainer {
+.formCard {
   background-color: rgba(255, 255, 255, 0.4);
   height: auto;
   width: 40vw;
@@ -442,10 +423,6 @@ nav {
   font-size: 1.25rem;
   color: #48556a;
 }
-/* 
-#form {
-  width: 90%;
-} */
 
 .input {
   outline: none;
@@ -454,6 +431,7 @@ nav {
   border-bottom: 2px solid #9eafc2;
   border-radius: 5px;
   padding: 0.5rem;
+  font-family: "RocknRoll One", sans-serif;
 }
 
 .input:focus,
@@ -464,7 +442,6 @@ nav {
 }
 
 .btn {
-  font-family: "RocknRoll One", sans-serif;
   display: block;
   width: 100%;
   background-color: inherit;
@@ -531,6 +508,69 @@ nav {
 
 .link-404:hover {
   text-decoration: underline;
+}
+
+/* ======================================== */
+/* =========== OTHER POST PAGES  ========== */
+/* ======================================== */
+
+.btn-main {
+  display: block;
+  width: 100%;
+  background-color: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.singlePostContainer {
+  width: 100%;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+  padding-top: 5rem;
+}
+
+.btn-text-1 {
+  color: red;
+}
+
+.btn-text-2 {
+  color: green;
+}
+
+.btn-text-3 {
+  color: var(--text);
+}
+
+/* ======================================== */
+/* ============ POST EDIT PAGE  =========== */
+/* ======================================== */
+
+.addPostContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 60vw;
+}
+
+/* ======================================== */
+/* ============== DASHBOARD =============== */
+/* ======================================== */
+
+.db-heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
+}
+
+.db-heading h2 {
+  color: var(--text);
 }
 
 /* ======================================= */
@@ -657,6 +697,7 @@ nav {
   }
 }
 
+
 @media screen and (max-width: 1024px) {
   .nav-links {
     width: 50%;
@@ -668,20 +709,29 @@ nav {
     overflow-x: hidden;
   }
 
-  nav {
-    margin-bottom: -3rem;
+  /* MAIN SECTION */
+  #hero {
+    justify-content: center;
+    margin: 0 auto;
   }
 
+  #hero p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* NAVBAR */
   .nav-links {
     position: absolute;
-    right: 0px;
-    height: 30vh;
-    top: 8vh;
+    right: -10px;
+    height: 18vh;
+    top: 10vh;
     background-color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50%;
+    transform: translateX(100%);
     transition: transform 0.5s ease-in;
     z-index: 1000;
   }
@@ -696,6 +746,10 @@ nav {
     display: none;
   }
 
+  .nav-links {
+    margin-top: 2rem;
+  }
+
   .nav-links li {
     opacity: 0;
     margin-top: 1rem;
@@ -706,78 +760,67 @@ nav {
     display: block;
   }
 
-  #hero h1 {
-    display: none;
+  .nav-active {
+    transform: translateX(0%);
   }
 
-  #hero p {
-    display: none;
+  #marginBottom {
+    transition: 1s;
   }
-}
 
-/* ======================================== */
-/* ===== SINGLE POST PAGE - show.php ====== */
-/* ======================================== */
+  .mobileMargin {
+    margin-bottom: 15rem;
+  }
 
-.btn-main {
-  font-family: "RocknRoll One", sans-serif;
-  display: block;
-  width: 100%;
-  background-color: inherit;
-  font-size: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-}
+  /* FORMS - LOGIN & REGISTER */
+  .formCard {
+    display: block;
+    width: 80vw;
+  }
 
-.singlePostContainer {
-  width: 100%;
-  font-family: "RocknRoll One", sans-serif;
-  justify-content: space-around;
-  text-align: center;
-  align-items: center;
-  margin: 0 auto;
-  height: 100vh;
-  padding-top: 5rem;
-}
+  .loginRegisterBtn {
+    font-size: 1rem;
+  }
 
-.btn-text-1 {
-  color: red;
-}
+  /* PAGE 404 */
+  .mainbox {
+    width: 70vw;
+  }
 
-.btn-text-2 {
-  color: green;
-}
+  .err,
+  .err2,
+  .far {
+    font-size: 8rem;
+  }
 
-.btn-text-3 {
-  color: var(--text);
-}
+  .far {
+    font-size: 5rem;
+  }
 
-/* ======================================== */
-/* ===== POST EDIT PAGE - edit.php ====== */
-/* ======================================== */
+  /* DASHBOARD */
+  .db-heading {
+    align-items: flex-start;
+  }
+
+  .db-heading h2 {
+    margin: 1rem 0;
+  }
+
+  /* POST EDIT PAGE */
 
 .addPostContainer {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem auto;
-  width: 60vw;
+ height: 100vh;
+}
 }
 
-/* ======================================== */
-/* ============== DASHBOARD =============== */
-/* ======================================== */
+@media (max-width: 477px) {
+  .db-form a {
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 7px;
+  }
 
-.db-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 1rem;
+  .nav-links {
+    top: 11vh;
+  }
 }
-
-.db-heading h1 {
-  font-family: "RocknRoll One", sans-serif;
-}
-
-

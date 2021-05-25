@@ -17,10 +17,9 @@
     }
 
     // Load views from views folder 
-    // Setting an empty array which will represent the dynamic values which are passed in views, even if it is hard coded or from database
+    // Empty array for dynamic values passed in views
     public function view($view, $data = []){
       // Check for view file
-      // Requiring the file & if it doesn't exist then it will stop the app
       if(file_exists('../app/views/' . $view . '.php')){
         require_once '../app/views/' . $view . '.php';
       } else {

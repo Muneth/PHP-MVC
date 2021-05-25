@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 <div class="formContainer">
-  <div id="formContainer">
+  <div class="formCard">
   <h2 class="form-header text-bg">Create An Account</h2>
     <form action="<?php echo URLROOT; ?>/users/register" method="post">
       <div class="flex-column padding">
@@ -24,7 +24,7 @@
         <input type="password" name="confirm_password" class="input" value="<?php echo $data['confirm_password']; ?>"/>
         <span class="invalid-feedback"><?php echo $data['confirm_password_err']; ?></span>
       </div>
-      <div class="padding">
+      <div class="padding loginRegisterBtn">
         <div class="padding-btn">
           <input class="btn padding-btn" type="submit" value="Register" />
         </div>

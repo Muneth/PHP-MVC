@@ -1,14 +1,9 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
   <div class="flex-row db-heading">
-    <div class="">
-      <h1>Your Posts</h1>
-    </div>
-    <div class="">
-      <a href="<?php echo URLROOT; ?>/posts/add" class="btn-main btn-text-2">
-       <i class="fas fa-pencil-alt"></i>Add Post
-      </a>
-    </div>
+    <h2>Your Posts</h2>
+    <div class=""><a href="<?php echo URLROOT; ?>/posts/add" class="btn-main btn-text-2"><i class="fas fa-pencil-alt"></i>Add Post</a></div>
   </div>
+  
 <div class="postContainer">
 <!-- Flash message if post added  -->
   <h3><?php flash('post_message'); ?></h3>
@@ -29,7 +24,7 @@
             </div>
             <!-- Making sure that the logged in user can modify only there posts  -->
             <?php if($userPost->user_id == $_SESSION['user_id']) : ?>
-              <form class="" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $userPost->id; ?>" method="post">
+              <form class="db-form" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $userPost->id; ?>" method="post">
                 <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $userPost->id; ?>" class="more_link">Edit</a>
                 <input class="more_link" type="submit" value="Delete">
               </form>

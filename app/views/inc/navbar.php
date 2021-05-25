@@ -13,7 +13,7 @@
     <!-- If the user id is in the session then show these nav items  -->
       <?php if (isset($_SESSION['user_id'])) : ?>
     <!-- Displaying loggedIn User -->
-        <li><a href="#">Welcome <?php echo explode(' ',$_SESSION['user_name'])[0]; ?></a></li>
+        <li>Welcome <?php echo ucwords(explode(' ',$_SESSION['user_name'])[0]); ?></li>
         <li><a href="<?php echo URLROOT; ?>/posts/dashboard">Dashboard</a></li>
         <li><a href="<?php echo URLROOT; ?>/users/logout">Logout</a></li>
     <!-- Otherwise show these nav items  -->

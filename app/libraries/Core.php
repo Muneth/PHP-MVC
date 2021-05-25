@@ -5,7 +5,7 @@
    * URL FORMAT - /controller/method/params
    */
 
-  // Setting Default Controller, Default method and Empty array for parameters...
+  // Default Controller, Default method and Empty array for parameters...
 
   class Core {
     protected $currentController = 'Pages';
@@ -13,15 +13,12 @@
     protected $params = [];
 
     public function __construct(){
-      // to echo an array
-      // print_r($this->getUrl());
 
       // Defining the method to get the URL values
       $url = $this->getUrl();
 
-      // Look in controllers for first value - if there is a controller then it will load that, otherwise it will load the default controlller - Pages 
-      // Going from index.php as everything is directed to index.php
-      // Taking the first value of URL array at index[0], making capitalizing the first letter and concactinating with .php 
+      // Checking for controller
+      // Capitalizing the first letter of value at index[0] in url and concactinating with .php 
       if(file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
         // If exists, set as controller
         $this->currentController = ucwords($url[0]);
@@ -35,7 +32,7 @@
       // Instantiate controller class
       $this->currentController = new $this->currentController;
 
-      // Check for second part of url array at index[1]
+      // Check index[1] in url 
       if(isset($url[1])){
         // Check to see if method exists in controller to match the value in URL array at index[1]
         // if there is a method then setting that as an current method, otherwise it will run the default method - index();

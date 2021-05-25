@@ -17,7 +17,6 @@
         <textarea name="body" class="input"><?php echo $data['body']; ?></textarea>
         <span class="invalid-feedback"><?php echo !empty($data['body_err']) ?  $data['body_err'] : ''; ?></span>
       </div>
-
       <input type="submit" class="btn-main" value="Submit">
     </form>
   </div>

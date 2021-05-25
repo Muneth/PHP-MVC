@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <div class="formContainer">
-  <div id="formContainer">
+  <div class="formCard">
     <!-- Custom flash message from session_helper -->
     <?php flash('register_success'); ?>
     <h2 class="form-header text-bg">Login</h2>
@@ -26,7 +26,7 @@
         >
       </div>
 
-      <div class="padding">
+      <div class="padding loginRegisterBtn">
         <div class="padding-btn">
           <input class="btn padding-btn" type="submit" value="login" />
         </div>

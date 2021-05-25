@@ -4,7 +4,7 @@ const navSlide = () => {
   const navLinks = document.querySelectorAll(".nav-links li");
   const navbar = document.querySelector("#marginBottom");
 
-  // Toogle Nav
+  // Toogle Nav and add margin 
   burger.addEventListener("click", () => {
     nav.classList.toggle("nav-active");
     navbar.classList.toggle("mobileMargin");

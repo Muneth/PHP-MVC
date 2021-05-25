@@ -20,6 +20,8 @@ const fetchJsons = async (...endpoints) => {
   }
 };
 
+// Fetching data from different API's and Displaying as a post 
+
 async function showPosts() {
   const [photos, posts, user] = await fetchJsons(
     `https://picsum.photos/v2/list?page=${page}&limit=${limit}`,
@@ -34,90 +36,34 @@ async function showPosts() {
     postsContainer.insertAdjacentHTML(
       "beforeend",
       `
-      <article class="card">
-      <div class="article__header"><img  src="${
+      <article class="card"><div class="article__header"><img  src="${
         photo.download_url
       }" alt="Author profile picture"/></div>
         <div class="article__info--container">
           <h2 class="article__title">${posts[i].title}</h2>
-          <p class="article__summary">${posts[i].body}
-          </p>
+          <p class="article__summary">${posts[i].body}</p>
           <div class="card__footer">
             <div class="author">
               <div class="profile-picture">
                 <img src="${
                   userRes[i].picture.thumbnail
-                }" alt="Author profile picture"/>
-              </div>
-              <div class="author__info">
-                <div class="name">${userRes[i].name.first} ${
-        userRes[i].name.last
-      }</div>
+                }" alt="Author profile picture"/></div>
+              <div class="author__info"><div class="name">${
+                userRes[i].name.first
+              } ${userRes[i].name.last}</div>
                 <div class="date">${randomDate(
                   new Date(2012, 0, 1),
                   new Date()
                 )}</div>
               </div>
-            </div>
-            <button class="share-btn">
-              <img src="http://localhost/posty-mvc-crud/img/icon-share.svg" alt="Share button" />
-            </button>
-          </div>
-        </div>
-        <div class="share-footer">
-        <p>SHARE</p>
-        <a href="https://www.facebook.com/"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-facebook.svg" alt="Facebook icon"
-        /></a>
-        <a href="https://twitter.com/?lang=fr"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-twitter.svg" alt="Twitter icon" /></a
-        ><a href="https://www.pinterest.fr/"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-pinterest.svg" alt="Pinterest icon"
-        /></a>
-        <button class="share-btn">
-          <img src="http://localhost/posty-mvc-crud/img/icon-share-white.png" alt="Share button" />
-        </button>
-      </div>
-      <div class="share-popup">
-        <p>SHARE</p>
-        <a href="https://www.facebook.com/"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-facebook.svg" alt="Facebook icon"
-        /></a>
-        <a href="https://twitter.com/?lang=fr"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-twitter.svg" alt="Twitter icon" /></a
-        ><a href="https://www.pinterest.fr/"
-          ><img src="http://localhost/posty-mvc-crud/img/icon-pinterest.svg" alt="Pinterest icon"
-        /></a>
-      </div>
+        </div>      
     </article>
       `
     );
-    let share_btn = document.querySelectorAll(".card__footer .share-btn");
-    const lastShareBtn = share_btn[share_btn.length - 1];
-    let share_footer = document.querySelectorAll(".share-footer");
-    const lastShare_footer = share_footer[share_footer.length - 1];
-    let share_btn_footer = document.querySelectorAll(
-      ".share-footer .share-btn"
-    );
-    const lastShare_btn_footer = share_btn_footer[share_btn_footer.length - 1];
-    let share_popup = document.querySelectorAll(".share-popup");
-    const lastShare_popup = share_popup[share_popup.length - 1];
-
-    lastShareBtn.onclick = () => {
-      if (window.matchMedia("(max-width:50rem)").matches) {
-        lastShare_footer.classList.toggle("share-footer--active");
-      } else {
-        lastShare_popup.classList.toggle("share-popup-active");
-      }
-    };
-
-    // Close share footer
-    lastShare_btn_footer.addEventListener("click", function (e) {
-      lastShare_footer.classList.remove("share-footer--active");
-    });
   });
 }
 
+// Function to get randon date 
 function randomDate(start, end) {
   return new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())

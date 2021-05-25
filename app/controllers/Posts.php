@@ -57,7 +57,7 @@
 
         // Make sure there are no errors and then validate
         // flash message if post added 
-        // Redirect to posts 
+        // Redirect to dashboard 
         if(empty($data['title_err']) && empty($data['body_err'])){
           
           if($this->postModel->addPost($data)){

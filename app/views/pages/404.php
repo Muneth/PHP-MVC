@@ -9,12 +9,10 @@
   <title><?php echo SITENAME; ?></title>
 </head>
 <body>
-
-    <div class="mainbox">
-        <div class="err">4</div>
-        <i class="far fa-question-circle fa-spin"></i>
-        <div class="err2">4</div>
-        <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go <a class="link-404" href="<?php echo URLROOT; ?>">home</a> and try from there.</p></div>
-    </div>
-
+  <main class="mainbox">
+      <div class="err">4</div>
+      <i class="far fa-question-circle fa-spin"></i>
+      <div class="err2">4</div>
+      <div class="msg">Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?<p>Let's go <a class="link-404" href="<?php echo URLROOT; ?>">home</a> and try from there.</p></div>
+  </main>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

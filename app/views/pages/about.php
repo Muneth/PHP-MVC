@@ -1,7 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
-<div class="containerMain">
-    <section id="hero">
+  <section class="hero">
     <div>
         <h2 class="form-header text-bg-animation"><?php echo $data['title']; ?></h2>
         <p>
@@ -15,7 +13,5 @@
         <p><?php echo $data['description']; ?></p>
         <p>Version: <strong><?php echo APPVERSION; ?></strong></p>
     </div>
-    </section>
-</div>
-
+  </section>
 <?php require APPROOT . '/views/inc/footer.php'; ?>
