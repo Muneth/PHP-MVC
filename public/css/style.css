@@ -727,7 +727,7 @@ nav {
   /* NAVBAR */
   .nav-links {
     position: absolute;
-    right: -10px;
+    right: 10px;
     height: 18vh;
     top: 10vh;
     background-color: inherit;
